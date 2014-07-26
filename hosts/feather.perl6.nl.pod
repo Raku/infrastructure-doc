@@ -1,0 +1,81 @@
+=head1 feather.perl6.nl - Perl 6 community server
+
+See also: L<http://feather.perl6.nl/>
+
+Feather is server donated by Juerd, and administered by the community (mostly
+moritz these days). People who need shell access on an always-on linux box can
+get an account here, mostly for building and experimenting with Perl 6
+compilers, but also for running IRC clients to connect to #perl6.
+
+=head1 Virtualization
+
+Feather is Xen host that runs three virtual machines, feather1, feather2 and
+feather3. If we talk about "feather", we mostly mean feather1. Juerd has
+access to feather0, the control host.
+
+=head1 feather1
+
+feather1 is the actual Perl 6 community server; many folks have access here,
+and about 20 people can use sudo and administrate the server. There it is
+considered low security, and shouldn't be used for private/sensitive
+information.
+
+It is a Debian installation, a mixture of unstable and testing.
+
+=head2 Apache
+
+The Apache installation on feather serves the perlcabal.org domain, most
+notably L<http://perlcabal.org/syn/> the synopses.
+
+=head1 feather2
+
+feather2 has fewer administrators, and is considered a bit more secure than
+feather1.
+
+=head2 sudo
+
+The following people have administrative rights on feather2: moritz, sorear,
+pmichaud, diakopter, rob, jdporter (perlmonks)
+
+=head2 Apache
+
+The Apache instance on feather2 hosts various perl6.org subdomains; the
+perl6.org A-Record points here.
+
+=head3 www.perl6.org
+
+Document root: /var/www/perl6.org
+
+Source: https://github.com/perl6/perl6.org/
+
+Managed with C<App::Mowyw>
+
+Update from a cron job that belongs to user moritz.
+
+=head3 faq.perl6.org
+
+Document root: /var/www/faq.perl6.org
+
+Sources: https://github.com/perl6/faq/
+
+Updated fron a cron job that belongs to user moritz. Update script in
+C<~moritz/update-faq.perl6.org.sh>.
+
+=head3 doc.perl6.org
+
+Document root: /var/www/doc.perl6.org/
+
+Sources: https.//github.com/perl6/doc/
+
+The HTML pages and images are generated with the C<htmlify.p6> script inside
+the perl6/doc repo, and copied to feather2 with the C<sync> script (rsync).
+moritz, japhb, pmichaud, raydiak and Mouq currently have permissions to do
+that.
+
+=head3 tables.perl6.org
+
+TODO
+
+=head1 feather3
+
+TODO

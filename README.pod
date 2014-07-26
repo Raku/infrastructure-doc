@@ -1,0 +1,9 @@
+=head1 The Perl 6 Infrastructure Documentation Repo
+
+Here we try to document how infrastructure in and around the Perl 6 community
+is set up, and who maintains it.
+
+Nick names in documents in here usually refer to IRC nick names used on
+L<#perl6|http://perl6.org/community/irc>, or alternatively to github user
+names.
+
