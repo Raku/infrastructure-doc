@@ -9,7 +9,7 @@ compilers, but also for running IRC clients to connect to #perl6.
 
 =head1 Virtualization
 
-Feather is Xen host that runs three virtual machines, feather1, feather2 and
+Feather is KVM host that runs three virtual machines, feather1, feather2 and
 feather3. If we talk about "feather", we mostly mean feather1. Juerd has
 access to feather0, the control host.
 
