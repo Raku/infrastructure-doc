@@ -1,6 +1,6 @@
-=head1 host07.perl6.com - home of camelia, the IRC eval bot
+=head1 host08.perl6.com - home of camelia, the IRC eval bot
 
-host07 is run by diakopter, though moritz also has root access.
+host0. is run by diakopter, though moritz also has root access.
 
 It is a bit beefier than feather, and thus is also used for smoking Perl 6
 modules on rakudo.
@@ -24,3 +24,21 @@ user p6eval_eval, and then as that user, run
 
     nohup perl /home/p6eval/evalbot/runtime/run-rakudo-jvm-evalserver &
 
+=head2 Ecosystem smoke reports
+
+Available on the web as L<http://host08.perl6.com:8080/report>.
+
+The web server runs as user L<emmentaler>. To start it, log in as that user,
+start a new tmux session
+
+    $ tmux
+
+and then
+
+    $ cd ~/tools/SmokeResults/
+    $ starman --port 8080 bin/app.pl
+
+And press C<C-b d> (that is, Ctrl+b followed by a "d") to detach the tmux
+session.
+
+The actual smoke data is supplied by colomon.
