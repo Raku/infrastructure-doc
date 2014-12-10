@@ -1,0 +1,25 @@
+=head1 hack.p6c.org - Perl 6 community server
+
+hack.p6c.org is a community server, with the hardware donated by the
+community, and the server generously hosted by
+L<noris network AG|http://noris.de/>.
+
+It offers shell access to community members for developing Perl 6 compilers
+and modules, running tests and IRC sessions.
+
+=head2 Administration
+
+=head3 New Users
+
+should be added with
+
+    adduser $newuser
+    adduser $newuser users
+
+Group C<users> applies the resource limits (see next section), so it's kinda
+important.
+
+=head3 Resource limits
+
+Resource limits (intended to avoid unintential lockups) are configured in
+F</etc/security/limits.conf>
