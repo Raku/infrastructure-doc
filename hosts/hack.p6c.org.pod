@@ -9,6 +9,14 @@ and modules, running tests and IRC sessions.
 
 =head2 Administration
 
+The following users have root/sudo access, and can potentially help you:
+
+  username      IRC nick
+  ========      ========
+  moritz        moritz
+  duff          PerlJam
+  claudio       El_Che
+
 =head3 New Users
 
 should be added with
