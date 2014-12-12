@@ -7,6 +7,16 @@ L<noris network AG|http://noris.de/>.
 It offers shell access to community members for developing Perl 6 compilers
 and modules, running tests and IRC sessions.
 
+=head2 External Services
+
+The following services are in the same physical location as hack.perl6.org,
+and thus have both a low latency, and the traffic from and to them is not
+accounted. So please use them, unless there's a very good reason.
+
+    DNS         62.128.1.42  62.128.1.53  2001:780:53::1  2001:780:53::2
+    NTP         ntp1.noris.net  ntp2.noris.net
+    Mirror      http://mirror.noris.net/
+
 =head2 Administration
 
 The following users have root/sudo access, and can potentially help you:
@@ -31,3 +41,11 @@ important.
 
 Resource limits (intended to avoid unintential lockups) are configured in
 F</etc/security/limits.conf>
+
+=head4 dalek
+
+Dalek is run from the C<dalek> user account. Compare
+L<https://github.com/perl6/mu/blob/master/misc/dalek-start.txt> for
+instructions on starting, and
+L<https://github.com/perl6/mu/blob/master/misc/dalek-push.txt> for how to make
+repositories push notifications to IRC through dalek.
