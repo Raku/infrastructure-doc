@@ -42,7 +42,7 @@ important.
 Resource limits (intended to avoid unintential lockups) are configured in
 F</etc/security/limits.conf>
 
-=head4 dalek
+=head3 dalek
 
 Dalek is run from the C<dalek> user account. Compare
 L<https://github.com/perl6/mu/blob/master/misc/dalek-start.txt> for
