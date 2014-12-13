@@ -44,8 +44,30 @@ F</etc/security/limits.conf>
 
 =head3 dalek
 
-Dalek is run from the C<dalek> user account. Compare
-L<https://github.com/perl6/mu/blob/master/misc/dalek-start.txt> for
-instructions on starting, and
-L<https://github.com/perl6/mu/blob/master/misc/dalek-push.txt> for how to make
+Dalek is an IRC bot that reports commits to various github repositories on
+several IRC channels.
+
+See L<https://github.com/perl6/mu/blob/master/misc/dalek-push.txt> for how to make
 repositories push notifications to IRC through dalek.
+
+On hack.p6c.org, dalek runs as two separate systemd services (with services
+files in F</etc/systemd/system>): C<dalek-http.service> and C<dalek-irc.service>.
+
+C<dalek-http.service> is a starman server that accepts web notifications from
+github. C<dalek-irc.service> is the actual IRC bot. Both run off the source
+code in C</home/dalek/dalek/>, as C<dalek> user and group. Both should
+automatically start at reboot
+
+You can inspect and manipulate them with the usual systemd commands:
+
+    systemctl status dalek-irc          # status info
+    journalctl -u dalek-irc             # get output from dalek-irc
+    journalctl -u -f dalek-irc          # get continued output from dalek-irc
+    systemctl restart dalek-irc
+    systemctl stop dalek-irc
+    systemctl start dalek-irc
+    systemctl reset-failed dalek-irc    # if 'status' shows it as 'failed'
+    systemctl disable dalek-irc         # to stop it from being start at boot time
+    systemctl enable dalek-irc          # to re-enable it to be started at boot time
+
+Same goes with C<dalek-http>, of course.
