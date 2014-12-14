@@ -1,0 +1,40 @@
+=head1 www.p6c.org - Perl 6 community web server
+
+www.p6c.org is a community server, with the hardware donated by the
+community, and the server generously hosted by
+L<noris network AG|http://noris.de/>.
+
+It hosts Perl 6-related web sites.
+
+A note on the status: currently it hosts a replica of L<http://perl6.org> and
+all subdomains (except L<http://testers.perl6.org/>) with the domain replaced
+by C<p6c.org>, so for example L<http://modules.p6c.org>. We are waiting for
+the perl6.org DNS entries to switch over to the IP of www.p6c.org
+(213.95.82.53).
+
+=head2 Websites
+
+Each (sub)domain that's hosted on www.p6c.org has its own UNIX user, with the
+same name as the domain. So for example for L<http://modules.perl6.org>
+there's a user C<modules.perl6.org> with home C</home/modules.perl6.org>. In
+the home directory there's typically a checkout of the git repository that
+contains the sources for the website, and often a script (typically C<update.sh>)
+that generates or copies the actual site, to C</var/www/modules.perl6.org>.
+
+The users's crontab contains a line that calls the script, typically once per
+hour:
+
+    root@www:~# sudo -iu faq.perl6.org crontab -l|grep -vE '^#'
+    */15    *       *       *       *       cd ~/faq; git pull -qfn; perl generate-web.pl /var/www/faq.perl6.org/
+
+
+=head2 Administration
+
+The following users have root/sudo access, and can potentially help you:
+
+  username      IRC nick
+  ========      ========
+  moritz        moritz
+  timo          timotimo
+  froggs        FROGGS
+
