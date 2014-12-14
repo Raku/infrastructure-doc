@@ -12,6 +12,16 @@ by C<p6c.org>, so for example L<http://modules.p6c.org>. We are waiting for
 the perl6.org DNS entries to switch over to the IP of www.p6c.org
 (213.95.82.53).
 
+=head2 Network
+
+IPv4 address: 213.95.82.53
+
+IPv6 addresses: 2001:780:101:ff00::80:1 to 2001:780:101:ff00::80:9.
+
+(The complete block 2001:780:101:ff00::80:1 to 2001:780:101:ff00::80:ffff is
+available for this host, the addresses just aren't all bound to the interface
+yet).
+
 =head2 Websites
 
 Each (sub)domain that's hosted on www.p6c.org has its own UNIX user, with the

@@ -7,6 +7,16 @@ L<noris network AG|http://noris.de/>.
 It offers shell access to community members for developing Perl 6 compilers
 and modules, running tests and IRC sessions.
 
+=head2 Network
+
+IPv4 address: 213.95.82.54
+
+IPv6 addresses: 2001:780:101:ff00::2:1 to 2001:780:101:ff00::2:9.
+
+(The complete block 2001:780:101:ff00::2:1 to 2001:780:101:ff00::2:ffff is
+available for this host, the addresses just aren't all bound to the interface
+yet).
+
 =head2 External Services
 
 The following services are in the same physical location as hack.perl6.org,
