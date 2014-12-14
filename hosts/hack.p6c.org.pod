@@ -26,6 +26,8 @@ The following users have root/sudo access, and can potentially help you:
   moritz        moritz
   duff          PerlJam
   claudio       El_Che
+  froggs        FROGGS
+  timo          timotimo
 
 =head3 New Users
 
