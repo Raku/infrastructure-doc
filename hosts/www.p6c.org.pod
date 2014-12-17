@@ -22,6 +22,9 @@ IPv6 addresses: 2001:780:101:ff00::80:1 to 2001:780:101:ff00::80:9.
 available for this host, the addresses just aren't all bound to the interface
 yet).
 
+    perlcabal.org       2001:780:101:ff00::80:2
+    design.perl6.org    2001:780:101:ff00::80:3
+
 =head2 Websites
 
 Each (sub)domain that's hosted on www.p6c.org has its own UNIX user, with the
