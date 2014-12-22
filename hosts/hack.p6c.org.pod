@@ -39,6 +39,9 @@ The following users have root/sudo access, and can potentially help you:
   froggs        FROGGS
   timo          timotimo
 
+The C</etc> directory is manged with etckepper (so essentially a git
+repository). Please commit your changes (using C<--author="...">).
+
 =head3 New Users
 
 should be added with

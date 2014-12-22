@@ -53,3 +53,9 @@ The following users have root/sudo access, and can potentially help you:
   timo          timotimo
   froggs        FROGGS
 
+Selected files under C</etc> are under version control with git; if you change
+a file under C</etc>, please add and commit it:
+
+    cd /etc/
+    git add -f path/to/file
+    git commit --author='Your Name <email@example.com>' -m 'configured the flurb'
