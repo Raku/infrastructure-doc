@@ -90,9 +90,9 @@ Same goes with C<dalek-http>, of course.
 =head3 rakudobrew
 
 The user C<rakudobrew> offers a rakudo installation with some modules. To use
-it, C<source /home/rakudobrew/.rakudobrew-bash> in a bash script. This will
-extend your $PATH variable to include a C<perl6> and C<perl6-m> binary /
-script.
+it, use C<source ~rakudobrew/rakudobrew-bash> in a bash profile script
+(C<~/.profile>) or in bash session. This will extend your $PATH variable to
+include a C<perl6> and C<perl6-m> binary / script.
 
 In C</home/rakudobrew/MODULES> is a list of modules that will be installed for
 new versions of rakudo. If you need a module added to that list, add it
