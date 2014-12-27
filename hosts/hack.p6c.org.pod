@@ -27,6 +27,18 @@ accounted. So please use them, unless there's a very good reason.
     NTP         ntp1.noris.net  ntp2.noris.net
     Mirror      http://mirror.noris.net/
 
+=head2 rakudobrew
+
+The user C<rakudobrew> offers a rakudo installation with some modules. To use
+it, use C<source ~rakudobrew/rakudobrew-bash> in a bash profile script
+(C<~/.profile>) or in bash session. This will extend your $PATH variable to
+include a C<perl6> and C<perl6-m> binary / script.
+
+In C</home/rakudobrew/MODULES> is a list of modules that will be installed for
+new versions of rakudo. If you need a module added to that list, add it
+yourself (if you have the permissions) or ask an administrator to do it for
+you.
+
 =head2 Administration
 
 The following users have root/sudo access, and can potentially help you:
@@ -86,18 +98,6 @@ You can inspect and manipulate them with the usual systemd commands:
     systemctl enable dalek-irc          # to re-enable it to be started at boot time
 
 Same goes with C<dalek-http>, of course.
-
-=head3 rakudobrew
-
-The user C<rakudobrew> offers a rakudo installation with some modules. To use
-it, use C<source ~rakudobrew/rakudobrew-bash> in a bash profile script
-(C<~/.profile>) or in bash session. This will extend your $PATH variable to
-include a C<perl6> and C<perl6-m> binary / script.
-
-In C</home/rakudobrew/MODULES> is a list of modules that will be installed for
-new versions of rakudo. If you need a module added to that list, add it
-yourself (if you have the permissions) or ask an administrator to do it for
-you.
 
 =head3 doc.perl6.org rebuild
 
