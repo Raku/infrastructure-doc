@@ -17,16 +17,6 @@ IPv6 addresses: 2001:780:101:ff00::2:1 to 2001:780:101:ff00::2:9.
 available for this host, the addresses just aren't all bound to the interface
 yet).
 
-=head2 External Services
-
-The following services are in the same physical location as hack.perl6.org,
-and thus have both a low latency, and the traffic from and to them is not
-accounted. So please use them, unless there's a very good reason.
-
-    DNS         62.128.1.42  62.128.1.53  2001:780:53::1  2001:780:53::2
-    NTP         ntp1.noris.net  ntp2.noris.net
-    Mirror      http://mirror.noris.net/
-
 =head2 rakudobrew
 
 The user C<rakudobrew> offers a rakudo installation with some modules. To use
@@ -63,6 +53,16 @@ should be added with
 
 Group C<users> applies the resource limits (see next section), so it's kinda
 important.
+
+=head3 External Services
+
+The following services are in the same physical location as hack.perl6.org,
+and thus have both a low latency, and the traffic from and to them is not
+accounted. So please use them, unless there's a very good reason.
+
+    DNS         62.128.1.42  62.128.1.53  2001:780:53::1  2001:780:53::2
+    NTP         ntp1.noris.net  ntp2.noris.net
+    Mirror      http://mirror.noris.net/
 
 =head3 Resource limits
 
