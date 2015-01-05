@@ -40,6 +40,7 @@ The following users have root/sudo access, and can potentially help you:
   claudio       El_Che
   froggs        FROGGS
   timo          timotimo
+  coke          [Coke]
 
 The C</etc> directory is managed with etckeeper (so essentially a git
 repository). Please commit your changes (using C<--author="...">).
