@@ -17,6 +17,24 @@ IPv6 addresses: 2001:780:101:ff00::2:1 to 2001:780:101:ff00::2:9.
 available for this host, the addresses just aren't all bound to the interface
 yet).
 
+=head3 SSH Host Public Keys
+
+=over 4
+
+=item *
+
+DSA: C<1024 5c:cd:90:f7:e1:cc:cd:5b:2d:2a:fb:65:85:0b:83:a8 /etc/ssh/ssh_host_dsa_key.pub (DSA)>
+
+=item *
+
+ECDSA: C<256 99:47:b8:06:bb:ea:5c:35:37:9b:64:d6:e5:2d:9b:da /etc/ssh/ssh_host_ecdsa_key.pub (ECDSA)>
+
+=item *
+
+RSA: C<2048 81:6d:dd:58:37:5c:9f:b2:92:65:cf:67:7c:c9:af:16 /etc/ssh/ssh_host_rsa_key.pub (RSA)>
+
+=back
+
 =head2 rakudobrew
 
 The user C<rakudobrew> offers a rakudo installation with some modules. To use
