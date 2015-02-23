@@ -4,13 +4,14 @@ www.p6c.org is a community server, with the hardware donated by the
 community, and the server generously hosted by
 L<noris network AG|http://noris.de/>.
 
-It hosts Perl 6-related web sites.
+It hosts Perl 6-related web sites, including L<http://perl6.org> and most of
+its subdomains (the sole exception being L<http://testers.perl6.org>), as well
+as L<http://ecosystem-api.p6c.org>.
 
-A note on the status: currently it hosts a replica of L<http://perl6.org> and
-all subdomains (except L<http://testers.perl6.org/>) with the domain replaced
-by C<p6c.org>, so for example L<http://modules.p6c.org>. We are waiting for
-the perl6.org DNS entries to switch over to the IP of www.p6c.org
-(213.95.82.53).
+The perl6.org subdomains are also available as C<subdomain.p6c.org>. (This was
+mostly used for testing the sites before the perl6.org DNS pointed to the
+server, but can be (ab)used for other purposes, which require more control
+over the DNS).
 
 =head2 Network
 
