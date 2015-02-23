@@ -85,7 +85,7 @@ accounted. So please use them, unless there's a very good reason.
 
 =head3 Resource limits
 
-Resource limits (intended to avoid unintential lockups) are configured in
+Resource limits (intended to avoid unintentional lockups) are configured in
 F</etc/security/limits.conf>
 
 =head3 dalek
