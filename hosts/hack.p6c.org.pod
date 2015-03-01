@@ -37,7 +37,7 @@ RSA: C<2048 81:6d:dd:58:37:5c:9f:b2:92:65:cf:67:7c:c9:af:16 /etc/ssh/ssh_host_rs
 
 =head2 rakudobrew
 
-The user C<rakudobrew> offers a rakudo installation with some modules. To use
+The user C<rakudobrew> offers a L<rakudo|http://rakudo.org/> installation with some modules. To use
 it, use C<source ~rakudobrew/rakudobrew-bash> in a bash profile script
 (C<~/.profile>) or in bash session. This will extend your $PATH variable to
 include a C<perl6> and C<perl6-m> binary / script.
