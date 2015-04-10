@@ -127,3 +127,9 @@ Same goes with C<dalek-http>, of course.
 The C<doc.perl6.org> user has an hourly cron job that builds the HTML files
 for the L<http://doc.perl6.org/> website. It uses rsync to copy the files
 to the www.p6c.org host.
+
+=head3 examples.perl6.org rebuild
+
+Similarly to C<doc.perl6.org>, C<examples.perl6.org> has a cron job which
+periodically builds the HTML of the L<http://examples.perl6.org> website.
+It also copies its files via rsync to the www.p6c.org host.
