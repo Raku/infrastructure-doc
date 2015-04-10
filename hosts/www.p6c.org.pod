@@ -41,8 +41,8 @@ hour:
     root@www:~# sudo -iu faq.perl6.org crontab -l|grep -vE '^#'
     */15    *       *       *       *       cd ~/faq; git pull -qfn; perl generate-web.pl /var/www/faq.perl6.org/
 
-In the case of L<http://doc.perl6.org/>, the cron job runs on the host
-C<hack.p6c.org>.
+In the case of L<http://doc.perl6.org/> and L<http://examples.perl6.org>,
+the cron job runs on the host C<hack.p6c.org>.
 
 =head2 Administration
 
