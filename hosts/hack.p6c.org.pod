@@ -7,6 +7,32 @@ L<noris network AG|http://noris.de/>.
 It offers shell access to community members for developing Perl 6 compilers
 and modules, running tests and IRC sessions.
 
+=head2 Rules for automated jobs
+
+If you set up a job (for example through C<cron>) that runs unsupervised,
+please stick to the following safety precautions:
+
+=over
+
+=item Guard against multiple parallel execution
+
+For example through
+
+    flock -n ~/yourservice.lock -c path/to/your-shell-script
+
+=item Place appropriate resource limits
+
+Guard your jobs against run-away memory or CPU usage, for example in bash with:
+
+    ulimit -v 2097152 # 2GB
+    ulimit -t 3600    # 1 hour
+
+If your job needs more resources, it's OK to pick higher limits.
+
+Just look what a typical execution needs, and multiply it with a safety margin (1.5 to 3)
+
+=back
+
 =head2 Network
 
 IPv4 address: 213.95.82.54
