@@ -33,7 +33,7 @@ same name as the domain. So for example for L<http://modules.perl6.org>
 there's a user C<modules.perl6.org> with home C</home/modules.perl6.org>. In
 the home directory there's typically a checkout of the git repository that
 contains the sources for the website, and often a script (typically C<update.sh>)
-that generates or copies the actual site, to C</var/www/modules.perl6.org>.
+that generates or copies the actual site, e.g. C</var/www/faq.perl6.org/>.
 
 The users's crontab contains a line that calls the script, typically once per
 hour:
