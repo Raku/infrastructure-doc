@@ -81,12 +81,12 @@ examples.perl6.org) can be run with an up-to-date Rakudo.  The steps to do
 this are:
 
     $ sudo su - rakudobrew   # need to do this as the rakudobrew user
-    $ rm -rf rakudobrew .perl6
-    $ git clone https://github.com/tadzik/rakudobrew.git
-    $ export PATH=$PATH:/home/rakudobrew/rakudobrew/bin
-    $ rakudobrew build moar
-    $ rakudobrew build-panda
-    $ ./install-modules
+    $ ./upgrade-rakudobrew
+
+This will purge the old C<rakudobrew> and reinstall MoarVM, NQP and Rakudo
+from scratch, installing panda afterwards and then the required modules.  If
+this is I<not> what you want, then you will have to perform some of the
+steps within C<upgrade-rakudobrew> manually.
 
 =head2 Administration
 
