@@ -128,6 +128,15 @@ accounted. So please use them, unless there's a very good reason.
     NTP         ntp1.noris.net  ntp2.noris.net
     Mirror      http://mirror.noris.net/
 
+=head3 Logging
+
+Rsyslog is configured to send log messages to www.p6c.org (in addition 
+to write them to local log files). On www the messages are written to 
+/var/log/hack.p6c.org/all_log.log
+
+The relevant configuration files for rsyslog can be found under 
+/etc/rsyslog.d/ (on hack and www).
+
 =head3 Resource limits
 
 Resource limits (intended to avoid unintentional lockups) are configured in
