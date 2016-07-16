@@ -104,6 +104,7 @@ The following users have root/sudo access, and can potentially help you:
   ptc           [ptc]
   bartolin      bartolin
   pmichaud      pmichaud
+  zoffix        Zoffix
 
 The C</etc> directory is managed with etckeeper (so essentially a git
 repository). Please commit your changes (using C<--author="...">).
