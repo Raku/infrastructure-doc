@@ -36,7 +36,7 @@ contains the sources for the website, and often a script (typically C<update.sh>
 that generates or copies the actual site, e.g. C</var/www/faq.perl6.org/>.
 
 Note that the content for several websites gets built on
-[`hack.p6c.org`](hack.p6c.org.pod) and then copied over to `www.p6c.org`.
+L<< C<hack.p6c.org>|hack.p6c.org.pod >> and then copied over to C<www.p6c.org>.
 
 The users's crontab contains a line that calls the script, typically once per
 hour:
