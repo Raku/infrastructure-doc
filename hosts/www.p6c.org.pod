@@ -64,3 +64,22 @@ a file under C</etc>, please add and commit it:
     cd /etc/
     git add -f path/to/file
     git commit --author='Your Name <email@example.com>' -m 'configured the flurb'
+
+=head2 modules.perl6.org
+
+=head3 Restarting the web app
+
+The app gets started automatically on server reboot as well as after database is
+updated (a cronjob that takes ~1.5hr runs on 20th and 50th minute of the hour).
+
+If it happens that you need to manually restart the web app, you can do so by running:
+
+    su - modules.perl6.org
+    cd ~/modules.perl6.org/
+    hypnotoad bin/ModulesPerl6.pl
+
+A development server can be started to produce more output to debug some issues by running:
+
+    su - modules.perl6.org
+    cd ~/modules.perl6.org/
+    bin/morbo
