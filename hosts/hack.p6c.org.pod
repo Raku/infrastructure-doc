@@ -175,8 +175,8 @@ Same goes with C<dalek-http>, of course.
 
 =head3 doc.perl6.org rebuild
 
-The C<doc.perl6.org> user has an hourly cron job that builds the HTML files
-for the L<http://doc.perl6.org/> website. It uses rsync to copy the files
+The C<doc.perl6.org> user has cron job that's scheduled to run every 5 minutes and builds
+the HTML files for the L<http://doc.perl6.org/> website. It uses rsync to copy the files
 to the www.p6c.org host.
 
 =head3 examples.perl6.org rebuild
