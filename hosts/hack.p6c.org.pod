@@ -184,3 +184,25 @@ to the www.p6c.org host.
 Similarly to C<doc.perl6.org>, C<examples.perl6.org> has a cron job which
 periodically builds the HTML of the L<http://examples.perl6.org> website.
 It also copies its files via rsync to the www.p6c.org host.
+
+=head3 design.perl6.org
+
+=head4 New installation
+
+To set up this site on a new system, some Perl modules need to be installed.
+You can set up user's own perlbrewed C<perl> and install the modules with
+these commands:
+
+    \curl -L https://install.perlbrew.pl | bash
+    echo 'source ~/perl5/perlbrew/etc/bashrc' >> ~/.bashrc
+    source ~/.bashrc
+    perlbrew install perl-5.26.0 --notest -Duseshrplib -Dusemultiplicity
+    perlbrew switch perl-5.26.0
+    perlbrew install-cpanm
+    cpanm -vn CGI File::Find::Rule File::Slurp File::ShareDir Class::Accessor
+
+=head4 Rebuild
+
+The C<design.perl6.org> has a cron job that periodically builds the HTML of
+the L<http://design.perl6.org> website. It also copies its files via rsync to
+the www.p6c.org host.
