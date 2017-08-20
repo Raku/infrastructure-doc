@@ -179,6 +179,12 @@ The C<doc.perl6.org> user has cron job that's scheduled to run every 5 minutes a
 the HTML files for the L<http://doc.perl6.org/> website. It uses rsync to copy the files
 to the www.p6c.org host.
 
+If there hasn't been a commit since the last time the job ran, by default it will do nothing.
+However, if you want to force a build (if the environment has changed or is stuck or...),
+you can force an update with:
+
+    $ touch /home/doc.per6.org/force-update
+     
 =head3 examples.perl6.org rebuild
 
 Similarly to C<doc.perl6.org>, C<examples.perl6.org> has a cron job which
