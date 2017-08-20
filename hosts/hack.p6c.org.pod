@@ -212,3 +212,20 @@ these commands:
 The C<design.perl6.org> has a cron job that periodically builds the HTML of
 the L<http://design.perl6.org> website. It also copies its files via rsync to
 the www.p6c.org host.
+
+=head2 Rebuilding the host
+
+Occasionally we have to upgrade the OS, you may have to do some special installs
+to deal with changes made by the upgrade.
+
+=head3 node/npm/node-gyp
+
+The docs build requires a newer version of node/npm than is available via the package manager;
+(as of this writing, node v8.4.0 is installed). see: https://nodejs.org/en/download/current/
+
+This will include npm - we also need node-gyp. Install this with:
+
+    npm install node-gyp -g
+ 
+If it's installed somewhere other than /usr/local/bin, be sure to update the PATH in the crontab
+entry.
