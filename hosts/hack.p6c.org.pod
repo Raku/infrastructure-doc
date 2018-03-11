@@ -94,6 +94,7 @@ The following users have root/sudo access, and can potentially help you:
 
   username      IRC nick
   ========      ========
+  alex          AlexDaniel
   moritz        moritz
   duff          PerlJam
   claudio       El_Che
