@@ -146,7 +146,7 @@ F</etc/security/limits.conf>
 
 =head3 dalek
 
-Dalek is an IRC bot that ~~reports~~ (used to; see `Geth` instead) commits to various github repositories on
+Dalek is an IRC bot that reports (used to; see C<Geth> instead) commits to various github repositories on
 several IRC channels.
 
 See L<https://github.com/perl6/mu/blob/master/misc/dalek-push.txt> for how to make
