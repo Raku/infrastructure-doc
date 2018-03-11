@@ -132,11 +132,11 @@ accounted. So please use them, unless there's a very good reason.
 
 =head3 Logging
 
-Rsyslog is configured to send log messages to www.p6c.org (in addition 
-to write them to local log files). On www the messages are written to 
+Rsyslog is configured to send log messages to www.p6c.org (in addition
+to write them to local log files). On www the messages are written to
 /var/log/hack.p6c.org/all_log.log
 
-The relevant configuration files for rsyslog can be found under 
+The relevant configuration files for rsyslog can be found under
 /etc/rsyslog.d/ (on hack and www).
 
 =head3 Resource limits
@@ -146,7 +146,7 @@ F</etc/security/limits.conf>
 
 =head3 dalek
 
-Dalek is an IRC bot that reports commits to various github repositories on
+Dalek is an IRC bot that ~~reports~~ (used to; see `Geth` instead) commits to various github repositories on
 several IRC channels.
 
 See L<https://github.com/perl6/mu/blob/master/misc/dalek-push.txt> for how to make
@@ -174,6 +174,33 @@ You can inspect and manipulate them with the usual systemd commands:
 
 Same goes with C<dalek-http>, of course.
 
+=head3 Geth
+
+L<Geth|https://github.com/perl6/geth> is an IRC bot that reports commits to
+IRC channels. The code is located in C</home/geth/geth> and service can be restarted
+with:
+
+    sudo service geth restart
+
+=head3 synopsebot6
+
+L<synopsebot6|https://github.com/perl6/synopsebot> is an IRC bot that gives
+links to tickets and speculations when they're mentioned. The code is located
+in C</home/synopsebot/synopsebot> and service can be restarted with:
+
+    sudo service synopsebot restart
+
+=head3 alerts.perl6.org
+
+The L<< webapp and C<p6lert> IRC bot|https://github.com/perl6/alerts >>
+for the p6lert service. The web app runs on hack, but
+it's reverse-proxied from Apache virtual host set up on www.p6c.org. The bot
+runs on hack. The code is located in C</home/p6lert/alerts> and the services
+can be restarted with:
+
+    sudo service p6lert-web restart
+    sudo service p6lert-irc restart
+
 =head3 doc.perl6.org rebuild
 
 The C<doc.perl6.org> user has cron job that's scheduled to run every 5 minutes and builds
@@ -185,7 +212,7 @@ However, if you want to force a build (if the environment has changed or is stuc
 you can force an update with:
 
     $ touch /home/doc.per6.org/force-update
-     
+
 =head3 examples.perl6.org rebuild
 
 Similarly to C<doc.perl6.org>, C<examples.perl6.org> has a cron job which
@@ -227,6 +254,6 @@ The docs build requires a newer version of node/npm than is available via the pa
 This will include npm - we also need node-gyp. Install this with:
 
     npm install node-gyp -g
- 
+
 If it's installed somewhere other than /usr/local/bin, be sure to update the PATH in the crontab
 entry.
