@@ -25,6 +25,7 @@ yet).
 
     perlcabal.org       2001:780:101:ff00::80:2
     design.perl6.org    2001:780:101:ff00::80:3
+    rakudo.org          2001:780:101:ff00::80:A
 
 =head2 Websites
 
