@@ -85,3 +85,17 @@ A development server can be started to produce more output to debug some issues 
     su - modules.perl6.org
     cd ~/modules.perl6.org/
     bin/morbo
+
+=head2 rakudo.org
+
+Site uses C<rakudo> user and the L<repo|https://github.com/perl6/rakudo.org/>'s checkout 
+lives in C</var/www/rakudo.perl6.org/rakudo.org>. A cronjob runs
+C</var/www/rakudo.perl6.org/rakudo.org/update-rakudo.org.sh> script every 5 minutes as
+well as on reboot.
+
+=head3 Restarting the web app
+
+If for whatever reason cron doesn't start the app, you can start it by running C<./hyp>
+in C</var/www/rakudo.perl6.org/rakudo.org>. The web app listens on port C<4242>, with
+Apache reverse proxy setup in C</etc/apache2/sites-available/rakudo.org.conf>
+(note: there's a ton of URL rewrites there).
