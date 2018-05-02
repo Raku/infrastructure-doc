@@ -211,7 +211,7 @@ If there hasn't been a commit since the last time the job ran, by default it wil
 However, if you want to force a build (if the environment has changed or is stuck or...),
 you can force an update with:
 
-    $ touch /home/doc.per6.org/force-update
+    $ touch /home/doc.perl6.org/force-update
 
 =head3 examples.perl6.org rebuild
 
