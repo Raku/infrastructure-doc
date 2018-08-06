@@ -112,3 +112,114 @@ On reboot, cron runs C</home/marketing/marketing/start-marketing.perl6.org.sh>
 If for whatever reason cron doesn't start the app, you can start it by running C<./hyp>
 in C</home/marketing/marketing/>. The web app listens on port C<4244>, with
 Apache reverse proxy setup in C</etc/apache2/sites-available/marketing.perl6.org.conf>
+
+
+=head2 SSL Certs
+
+Existing certs get automatically updated with C</root/letsencrypt/letsencrypt-auto>; see
+C<crontab -l> for exact command.
+
+To install a new cert for a new site, you can do the following (the
+instructions are for a web app that listens on a particular port):
+
+Create two files in C</etc/apache2/sites-available>. One for port 80 and
+another for port 433. And use these
+examples; we'll use C<marketing.perl6.org> as hostname for the site we're
+adding:
+
+    root@www:/etc/apache2/sites-available# cat marketing.perl6.org.conf
+    <VirtualHost *:80>
+        ServerName  marketing.perl6.org
+        ServerAdmin email@email.com
+        ServerAlias www.marketing.perl6.org
+        DocumentRoot /var/www/marketing.perl6.org/webroot-marketing.perl6.org/
+
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} !^.well-known/acme-challenge
+        RewriteRule ^(.*) https://marketing.perl6.org$1 [R,L]
+    </VirtualHost>
+
+And now a file for 433 port:
+
+    root@www:/etc/apache2/sites-available# cat marketing.perl6.org-le-ssl.conf
+    <IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName  marketing.perl6.org
+        ServerAdmin email@email.com
+        ServerAlias www.marketing.perl6.org
+        DocumentRoot /var/www/marketing.perl6.org/webroot-marketing.perl6.org
+
+        <Proxy *>
+            Order deny,allow
+            Allow from all
+        </Proxy>
+        ProxyRequests Off
+        ProxyPreserveHost On
+        ProxyPass / http://localhost:4244/ keepalive=On
+        ProxyPassReverse / http://localhost:4244/
+        RequestHeader set X-Forwarded-Proto "https"
+        Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
+
+    Include /etc/letsencrypt/options-ssl-apache.conf
+    Include /etc/letsencrypt/options-ssl-apache.conf
+    SSLCertificateFile /etc/letsencrypt/live/marketing.perl6.org/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/marketing.perl6.org/privkey.pem
+    </VirtualHost>
+    </IfModule>
+
+Particular things to note:
+
+=over 4
+
+=item * Change the email to the one morits uses. You can get it from root's C<crontab -l>
+
+=item * Change all of the C<marketing.perl6.org> occurences to your domain
+
+=item * Change the port your app listens to (examples use C<4244>)
+
+=item * You may wish to comment out C<Header always set> line (put C<#> before
+it) until we ensure all of our stuff works right.
+
+=item * Note that Apache will likely not yet be able to start with the 433 site enabled, because the C<SSLCertificateFile>/C<SSLCertificateKeyFile> files
+are currently missing.
+
+=back
+
+Now that the files are set up, we'll set up a webroot for the letsencrypt
+stuff to find the things its looking for. This is the path in C<DocumentRoot>
+directive in port 80 file.
+
+These commands are run as root user.
+
+    mkdir -p /var/www/marketing.perl6.org/webroot-marketing.perl6.org
+    chown +R marketing:www-data /var/www/marketing.perl6.org/
+
+Now, we'll enable the port 80 file and restart Apache:
+
+    a2ensite /etc/apache2/sites-available/marketing.perl6.org.conf
+    systemctl reload apache2
+
+Now, we'll run certbot, again change email address to moritz's that you can
+see in C<crontab -l> commands. The C<-d> flag gets the domain we're setting
+up as well as its C<www.> version
+
+    cd /root/letsencrypt
+    ./certbot-auto certonly --webroot -m CHANGE@EMAIL.COM -d marketing.perl6.org,www.marketing.perl6.org
+
+The script will ask you to enter the webroot path. Give it the C<DocumentRoot>
+path, which is in our example is C</var/www/marketing.perl6.org/webroot-marketing.perl6.org>. Afterwards, it'll ask you to choose that path from the list by typing a number (C<2>, probably), type it, press ENTER.
+
+Hopefully, the script will now tell you it's done, and it'll also list the
+C<.../fullchain.pem> and C<.../privkey.pem> files we've added to our 443 file;
+ensure the filenames match.
+
+Now, we'll enable the 433 site:
+
+    a2ensite /etc/apache2/sites-available/marketing.perl6.org-le-ssl.conf
+    systemctl reload apache2
+
+And now we're done. The http version of the site should now redirect to https
+one and https ones should work fine. Uncomment C<Header always set> if you
+temporarily commented it and restart the server again and we're done
+C<systemctl reload apache2>.
+
