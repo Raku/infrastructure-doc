@@ -93,6 +93,13 @@ lives in C</var/www/rakudo.perl6.org/rakudo.org>. A cronjob runs
 C</var/www/rakudo.perl6.org/rakudo.org/update-rakudo.org.sh> script every 5 minutes.
 On reboot, cron runs C</var/www/rakudo.perl6.org/rakudo.org/start-rakudo.org.sh>
 
+=head2 marketing.perl6.org
+
+Site uses C<marketing> user and the L<repo|https://github.com/perl6/marketing/>'s checkout 
+lives in C</home/marketing/marketing>. A cronjob runs
+C</home/marketing/marketing/update-marketing.perl6.org.sh> script every 5 minutes.
+On reboot, cron runs C</home/marketing/marketing/start-marketing.perl6.org.sh>
+
 =head3 Restarting the web app
 
 If for whatever reason cron doesn't start the app, you can start it by running C<./hyp>
