@@ -90,8 +90,8 @@ A development server can be started to produce more output to debug some issues 
 
 Site uses C<rakudo> user and the L<repo|https://github.com/perl6/rakudo.org/>'s checkout 
 lives in C</var/www/rakudo.perl6.org/rakudo.org>. A cronjob runs
-C</var/www/rakudo.perl6.org/rakudo.org/update-rakudo.org.sh> script every 5 minutes.
-On reboot, cron runs C</var/www/rakudo.perl6.org/rakudo.org/start-rakudo.org.sh>
+C</var/www/rakudo.perl6.org/rakudo.org/update-rakudo.org.sh> script every 5 minutes
+as well as after reboot. The script pulls changes from the repo and [re]starts the web app.
 
 =head3 Restarting the web app
 
