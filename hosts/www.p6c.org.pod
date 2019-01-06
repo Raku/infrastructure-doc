@@ -58,7 +58,6 @@ The following users have root/sudo access, and can potentially help you:
   timo          timotimo
   froggs        FROGGS
   coke          [Coke]      (has sudo privs)
-  zoffix        Zoffix      (has sudo privs and also the key in root user)
 
 Selected files under C</etc> are under version control with git; if you change
 a file under C</etc>, please add and commit it:
