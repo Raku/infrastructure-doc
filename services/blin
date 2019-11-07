@@ -1,0 +1,65 @@
+Run Blin in vm using podman
+===========================
+
+Security
+--------
+Isolate host from internal network
+Close ports (in and out)
+Monitor etc vm
+
+Create vm
+---------
+Turn on automatic security updates.
+
+Install ubuntu
+--------------
+
+Install podman: https://podman.io/getting-started/installation
+--------------------------------------------------------------
+sudo apt-get update -qq
+sudo apt-get install -qq -y software-properties-common uidmap
+sudo add-apt-repository -y ppa:projectatomic/ppa
+sudo apt-get update -qq
+sudo apt-get -qq -y install podman
+
+Edit /etc/containers/registries.conf
+------------------------------------
+
+# This is a system-wide configuration file used to
+# keep track of registries for various container backends.
+# It adheres to TOML format and does not support recursive
+# lists of registries.
+
+# The default location for this configuration file is /etc/containers/registries.conf.
+
+# The only valid categories are: 'registries.search', 'registries.insecure',
+# and 'registries.block'.
+
+[registries.search]
+registries = ['docker.io', 'registry.fedoraproject.org', 'quay.io', 'registry.access.redhat.com', 'registry.centos.org']
+
+# If you need to access insecure registries, add the registry's fully-qualified name.
+# An insecure registry is one that does not have a valid SSL certificate or only does HTTP.
+[registries.insecure]
+registries = []
+
+
+# If you need to block pull access from a registry, uncomment the section below
+# and add the registries fully-qualified name.
+#
+[registries.block]
+registries = []
+
+
+Pull image, run
+---------------
+git pull https://github.com/nxadm/raku-blin-docker.git
+cd raku-blin-docker
+mkdir /var/tmp/Blin-volume
+podman pull rakudo/blin
+podman run -ti -v /var/tmp/Blin-volume:/mnt rakudo/blin
+
+TODO
+----
+- cronjob, 
+- post results to webservice
